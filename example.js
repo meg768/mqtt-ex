@@ -1,16 +1,7 @@
-# mqtt-ex
-A replacement for MQTT.js (https://www.npmjs.com/package/mqtt) which
-also supports message routing for specific topics.
-
-Simply call the **on** function with the topic you want to handle.
-See example below.
-
-## Example
-
-```javascript
 
 function example() {
-	var Mqtt = require('mqtt-ex');
+//	var Mqtt = require('mqtt-dispatch');
+	var Mqtt = require('./index.js');
 
 	// Load .env
 	require('dotenv').config();
@@ -54,6 +45,4 @@ function example() {
 	});
 }
 
-
-
-```
+example();

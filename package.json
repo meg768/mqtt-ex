@@ -1,0 +1,27 @@
+{
+  "name": "mqtt-ex",
+  "version": "1.0.0",
+  "description": "mqtt-ex",
+  "main": "index.js",
+  "scripts": {
+    "git-pull": "git pull",
+    "git-commit": "git add -A && git commit -m '-' && git push",
+    "git-revert": "git reset --hard HEAD"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meg768/mqtt-ex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meg768/mqtt-ex/issues"
+  },
+  "homepage": "https://github.com/meg768/mqtt-ex#readme",
+  "dependencies": {
+    "mqtt": "^4.2.6"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
