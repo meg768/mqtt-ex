@@ -51,7 +51,7 @@ function makeChangesToMqttClient(client) {
 		// Add topic
 		topics.push(topic);
 
-		// And add top listeners
+		// And add to listeners
 		client.addListener(topic, fn);
 	}
 
