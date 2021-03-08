@@ -1,8 +1,8 @@
 {
   "name": "mqtt-ex",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "mqtt-ex",
-  "main": "index.js",
+  "main": "mqtt-ex.js",
   "scripts": {
     "git-pull": "git pull",
     "git-commit": "git add -A && git commit -m '-' && git push",

@@ -5,6 +5,8 @@ also supports message routing for specific topics.
 Simply call the **on** function with the topic you want to handle.
 See example below.
 
+Wish this feature would be available in the original MQTT.js package...
+
 ## Example
 
 ```javascript
@@ -35,16 +37,16 @@ function example() {
 	client.subscribe('homey/devices/#');
 	
 	// Perform specific tasks on each topic
-	client.on('homey/devices/:device/onoff', (message, args) => {
+	client.on('homey/devices/:device/onoff', (topic, message, args) => {
 		console.log(`Lightbulb/socket ${args.device} is set to state ${message}`);
 	});
 	
-	client.on('homey/devices/:device/alarm_motion', (message, args) => {
+	client.on('homey/devices/:device/alarm_motion', (topic, message, args) => {
 		console.log(`Sensor ${args.device} is set to state ${message}`);
 	});
 
 	// Another example just to show how to use parameters
-	client.on('homey/devices/:device/:capability', (message, args) => {
+	client.on('homey/devices/:device/:capability', (topic, message, args) => {
 		console.log(`Device ${args.device}:${args.capability} is set to ${message}`);
 	});
 
@@ -54,6 +56,6 @@ function example() {
 	});
 }
 
-
+example();
 
 ```
