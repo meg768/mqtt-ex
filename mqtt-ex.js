@@ -1,13 +1,12 @@
 const Mqtt = require('mqtt');
 
-function makeChangesToMqttClient(client) {
+function connect(host, options) {
 
+	var client = Mqtt.connect(host, options);
 	var topics = [];
 
-	// Add a default listener
 	client.addListener('message', (topic, message) => {
 	
-		// Returns a match if two paths are equal (including variables)
 		function isMatch(A, B) {
 			var args = {};
 	
@@ -31,10 +30,8 @@ function makeChangesToMqttClient(client) {
 			return args;
 		}
 
-		// Should it be converted?
 		message = message.toString();
 
-		// If a topic is matched, emit an event to the registered topic
 		topics.forEach((item) => {
 			let match = isMatch(topic, item);
 
@@ -46,24 +43,16 @@ function makeChangesToMqttClient(client) {
 
 	});
 
-	// Override on() so we may record topics
 	client.on = function(topic, fn) {
-		// Add topic
 		topics.push(topic);
-
-		// And add to listeners
 		client.addListener(topic, fn);
 	}
 
 	return client;
 }
 
-function connect(host, options) {
-	return makeChangesToMqttClient(Mqtt.connect(host, options));
-}
-
-module.exports.connect = connect;
-module.exports.MqttClient = Mqtt.MqttClient;
-module.exports.Client = Mqtt.MqttClient;
-module.exports.Store = Mqtt.Store;
+module.exports.connect = connect
+module.exports.MqttClient = Mqtt.MqttClient
+module.exports.Client = Mqtt.MqttClient
+module.exports.Store = Mqtt.Store
 

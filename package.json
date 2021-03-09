@@ -1,6 +1,6 @@
 {
   "name": "mqtt-ex",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "mqtt-ex",
   "main": "mqtt-ex.js",
   "scripts": {
@@ -22,6 +22,5 @@
     "mqtt": "^4.2.6"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0"
   }
 }
